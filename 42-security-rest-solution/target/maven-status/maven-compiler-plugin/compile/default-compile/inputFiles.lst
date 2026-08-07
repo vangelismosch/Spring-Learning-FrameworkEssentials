@@ -1,0 +1,6 @@
+/Users/moschoes/Documents/Java/dev-spring-boot/core-spring-labfiles/lab/42-security-rest-solution/src/main/java/config/RestSecurityConfig.java
+/Users/moschoes/Documents/Java/dev-spring-boot/core-spring-labfiles/lab/42-security-rest-solution/src/main/java/accounts/security/CustomAuthenticationProvider.java
+/Users/moschoes/Documents/Java/dev-spring-boot/core-spring-labfiles/lab/42-security-rest-solution/src/main/java/accounts/RestWsApplication.java
+/Users/moschoes/Documents/Java/dev-spring-boot/core-spring-labfiles/lab/42-security-rest-solution/src/main/java/accounts/web/AccountController.java
+/Users/moschoes/Documents/Java/dev-spring-boot/core-spring-labfiles/lab/42-security-rest-solution/src/main/java/accounts/services/AccountService.java
+/Users/moschoes/Documents/Java/dev-spring-boot/core-spring-labfiles/lab/42-security-rest-solution/src/main/java/accounts/security/CustomUserDetailsService.java
