@@ -5,6 +5,7 @@ import java.util.logging.Logger;
 
 import javax.sql.DataSource;
 
+import org.hibernate.cfg.Environment;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

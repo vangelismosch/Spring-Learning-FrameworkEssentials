@@ -29,7 +29,9 @@ public class RewardNetworkTests {
 		ApplicationContext context = SpringApplication.run(TestInfrastructureConfig.class);
 		
 		// Get the bean to use to invoke the application
-		rewardNetwork = context.getBean(RewardNetwork.class);
+		
+		rewardNetwork = context.getBean(RewardNetwork.class); //Better practice when 
+		rewardNetwork = (RewardNetwork)context.getBean("rewardNetwork");
 	}
 
 	@Test

@@ -2,6 +2,21 @@ package config;
 
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import rewards.RewardNetwork;
+import rewards.internal.RewardNetworkImpl;
+import rewards.internal.account.AccountRepository;
+import rewards.internal.account.JdbcAccountRepository;
+import rewards.internal.restaurant.JdbcRestaurantRepository;
+import rewards.internal.restaurant.RestaurantRepository;
+import rewards.internal.reward.JdbcRewardRepository;
+import rewards.internal.reward.RewardRepository;
+
 /**
  * TODO-00: In this lab, you are going to exercise the following:
  * - Creating Spring configuration class
@@ -41,10 +56,53 @@ import javax.sql.DataSource;
  * - Note that return type of each bean method should be an interface
  *   not an implementation.
  */
-
+@Configuration
 public class RewardsConfig {
+
 
 	// Set this by adding a constructor.
 	private DataSource dataSource;
+
+	//todo 3
+	
+	public RewardsConfig(DataSource dataSource){
+		this.dataSource = dataSource;
+	}
+
+
+	
+
+	@Bean
+	public AccountRepository accountRepository(){
+		JdbcAccountRepository repository = new JdbcAccountRepository();
+		repository.setDataSource(dataSource);
+		return repository;
+	}
+
+	@Bean
+	public RestaurantRepository restaurantRepository(){
+		JdbcRestaurantRepository repository = new JdbcRestaurantRepository();
+		repository.setDataSource(dataSource);
+		return repository;
+	}
+
+	 
+	@Bean
+	public RewardRepository rewardRepository(){
+		JdbcRewardRepository repository = new JdbcRewardRepository();
+		repository.setDataSource(dataSource);
+		return repository;
+	}
+
+
+	//Service interface 
+	@Bean
+	public RewardNetwork rewardNetwork(){
+		return new RewardNetworkImpl(
+			accountRepository(), 
+			restaurantRepository(), 
+			rewardRepository()
+		);
+	}
 
 }

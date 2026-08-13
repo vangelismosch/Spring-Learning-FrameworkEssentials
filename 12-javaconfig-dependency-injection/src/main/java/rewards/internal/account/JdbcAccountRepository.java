@@ -7,6 +7,7 @@ import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 
 import common.money.MonetaryAmount;
@@ -17,7 +18,9 @@ import common.money.Percentage;
  */
 public class JdbcAccountRepository implements AccountRepository {
 
+	
 	private DataSource dataSource;
+
 
 	/**
 	 * Sets the data source this repository will use to load accounts.
