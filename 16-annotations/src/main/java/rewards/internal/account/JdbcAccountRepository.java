@@ -2,8 +2,12 @@ package rewards.internal.account;
 
 import common.money.MonetaryAmount;
 import common.money.Percentage;
-import org.springframework.dao.EmptyResultDataAccessException;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.stereotype.Repository;
+
+import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -21,6 +25,7 @@ import java.sql.SQLException;
  *   with @Autowired.
  */
 
+@Repository
 public class JdbcAccountRepository implements AccountRepository {
 
 	private DataSource dataSource;
@@ -30,8 +35,15 @@ public class JdbcAccountRepository implements AccountRepository {
 	 *
 	 * @param dataSource the data source
 	 */
+
+	@Autowired
 	public void setDataSource(DataSource dataSource) {
 		this.dataSource = dataSource;
+	}
+
+	@PostConstruct
+	public void init(){
+		setDataSource(dataSource);
 	}
 
 	public Account findByCreditCard(String creditCardNumber) {
