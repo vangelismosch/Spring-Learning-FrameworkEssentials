@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -37,7 +38,7 @@ public class RewardNetworkTests {
 		// Create application context from TestInfrastructureConfig,
 		// which also imports RewardsConfig
 		ApplicationContext context = SpringApplication.run(TestInfrastructureConfig.class);
-		
+		PropertySourcesPlaceholderConfigurer eo;
 		// Get rewardNetwork bean from the application context
 		rewardNetwork = context.getBean(RewardNetwork.class);
 	}

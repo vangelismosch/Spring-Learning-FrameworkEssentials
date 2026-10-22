@@ -174,6 +174,7 @@ public class JdbcRestaurantRepository implements RestaurantRepository {
 	@PreDestroy
 	public void clearRestaurantCache() {
 		System.out.println("clearRestaurantCache invoked");
+		System.out.println("Clearing Cache");
 		restaurantCache.clear();
 	}
 
